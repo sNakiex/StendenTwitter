@@ -1,0 +1,12 @@
+{% extends 'base.twig' %}
+{% block content %}
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Error 404</h1>
+            <p>De pagina kon niet worden gevonden.</p>
+            {% if error %}<p>{{ error }}</p>{% endif %}
+            <p><a class="btn btn-primary btn-lg"  onclick="window.history.back();return false;" role="button">Ga terug &raquo;</a></p>
+        </div>
+    </div>
+{% endblock %}

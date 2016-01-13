@@ -1,0 +1,21 @@
+RewriteEngine On
+IndexIgnore *
+AddCharset UTF-8 .html
+Options +FollowSymLinks
+
+# CACHE STUFF
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|js|css|swf|html)(\.gz)?$">
+	Header unset ETag
+	FileETag None
+	SetOutputFilter DEFLATE 
+</FilesMatch>
+ErrorDocument 404 /error
+
+
+# MISSING GIF,JPG OR PNGS
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule \.(gif|jpe?g|png)$ /media/img/missing.png [R=301,L]
+
+# URLS
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ start.php [QSA,L]

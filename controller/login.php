@@ -1,0 +1,17 @@
+<?php
+if(empty($_POST)){
+    if($user->isSinged()){
+        $cms->redirect("home");
+        $cms->loadPage("base.twig");
+    }else{
+        $cms->loadPage("login.twig");
+    }
+}else{
+    if($user->isSinged()){
+        $cms->redirect("home");
+        $cms->loadPage("base.twig");
+    }else{
+        $user->login($_POST['username'],$_POST['password']);
+    }
+}
+?>

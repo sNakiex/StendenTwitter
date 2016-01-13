@@ -1,0 +1,33 @@
+{% extends 'base.twig' %}
+{% block content %}
+
+    <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <h2>Account aanmaken</h2>
+        {% if error %}<div class="alert alert-danger" role="alert">{{ error }}</div>{% endif %}
+        <form method="post" action="{{ baseurl }}/aanmelden" enctype="multipart/form-data" class="col-md-12 jumbotron form-group" role="form">
+            <div class="form-group">
+                <label for="username">Email adres</label>
+                <input type="email" placeholder="Uw email adres" name="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="username">Gebruikersnaam</label>
+                <input type="text" placeholder="Gewenste gebruikersnaam" name="username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">Wachtwoord</label>
+                <input type="password" placeholder="Wachtwoord" name="password" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">Herhaal het wachtwoord</label>
+                <input type="password" placeholder="Wachtwoord" name="password2" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">Avatar</label>
+                <input type="file" name="avatar" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Register</button>
+        </form>
+    </div> <!-- /container -->
+{% endblock %}

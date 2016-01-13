@@ -1,0 +1,33 @@
+{% extends 'base.twig' %}
+{% block content %}
+    {% if not profileFound %}
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <h2>Profiel niet gevonden.</h2>
+                <p><br /><a class="btn btn-primary btn-lg" onclick="history.go(-1);return false;" role="button">&laquo; Ga terug</a></p>
+            </div>
+        </div>
+    {% endif %}
+    {% if userStweets %}
+        <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <h2>Laatste Tweets</h2>
+            {% for item in userStweets %}
+                <div class="col-md-12">
+                    <p><img style="width:50px;height:50px;" src="{{ baseurl }}/uploads/{{ item.userId|avatar }}"> {{ item.userId|userName }}</p>
+                    <p>{{ item.message }}</p>
+                </div>
+            {% endfor %}
+        </div> <!-- /container -->
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <hr>
+            <footer>
+                <p>&copy; StendenTwitter 2015</p>
+            </footer>
+        </div>
+    </div>
+{% endblock %}

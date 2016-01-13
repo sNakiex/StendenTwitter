@@ -1,0 +1,18 @@
+{{ breadcrumb }}
+{% if breadcrumb is defined %}
+    <div class="b-breadcrumbs f-breadcrumbs">
+        <div class="container">
+            <ul>
+            {% for item in breadcrumb %}
+                {% if loop.first %}
+                    <li>{{ item }} » </li>
+                {% elseif loop.last %}
+                    <li>{{ item }}</li>
+                {% else %}
+                    <li>{{ item }} » </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endif %}
